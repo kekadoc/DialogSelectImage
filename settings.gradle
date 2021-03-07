@@ -1,0 +1,3 @@
+include ':dialogselectimage'
+include ':app'
+rootProject.name = "DialogSelectImage"

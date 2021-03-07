@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DialogSelectImage</string>
+
+    <string name="dialog_select_avatar_title">Choice avatar</string>
+    <string name="dark_theme">DarkTheme</string>
+    <string name="select">Select</string>
+    <string name="loading">Loading…</string>
+
+    <string name="dialog_select_image_error_empty"> No image :( </string>
+    <string name="dialog_select_image_error_data">Fail image :( </string>
+
+</resources>

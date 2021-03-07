@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_title"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textView_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingStart="24dp"
+            android:paddingEnd="16dp"
+            android:text="@string/title"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+        <view class="com.kekadoc.tools.android.dialog.DialogSelectImage$CounterView"
+            android:id="@+id/counterView"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:elevation="4dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxWidth="72dp"
+            android:minWidth="36dp"
+            android:textAlignment="center"
+            android:textColor="?colorOnSecondary"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <view class="com.kekadoc.tools.android.dialog.DialogSelectImage$ImagePreview"
+            android:id="@+id/selectedImage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:padding="8dp"
+            android:visibility="visible"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceCircle"
+            app:strokeColor="?colorAccent"
+            app:strokeWidth="2dp"
+            tools:srcCompat="@tools:sample/avatars"/>
+
+        <view class="com.kekadoc.tools.android.dialog.DialogSelectImage$ActionView"
+            android:id="@+id/buttonSelectImage"
+            style="@style/Widget.MaterialComponents.FloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:clickable="true"
+            android:contentDescription="@string/content_description_confirm"
+            android:focusable="true"
+            android:src="@drawable/ic_dialog_select_image_action"
+            android:visibility="gone"
+            app:elevation="60dp"
+            app:fabSize="mini" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_title" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressIndicator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:hideAnimationBehavior="outward"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_title"
+        app:showAnimationBehavior="inward" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressIndicator"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout_message"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?colorSurface"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_title"
+        app:layout_constraintVertical_bias="0.0">
+
+        <view class="com.kekadoc.tools.android.dialog.DialogSelectImage$MessageView"
+            android:id="@+id/messageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
