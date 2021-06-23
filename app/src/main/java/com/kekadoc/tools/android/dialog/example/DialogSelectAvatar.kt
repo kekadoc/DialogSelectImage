@@ -147,7 +147,9 @@ class DialogSelectAvatar : DialogSelectImage() {
             error(R.drawable.ic_baseline_error_outline_24)
             crossfade(100)
             transformations(CircleCropTransformation())
-            listener(onError = {_, _ -> selection.disable(index)})
+            listener(onError = {_, error ->
+                selection.disable(index)
+            })
         }
     }
 

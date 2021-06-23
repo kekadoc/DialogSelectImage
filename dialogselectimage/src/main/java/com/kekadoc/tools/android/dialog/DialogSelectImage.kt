@@ -179,6 +179,7 @@ open class DialogSelectImage : BottomSheetDialogFragment() {
         fun onError(throwable: Throwable)
 
     }
+
     /**
      *
      */
@@ -199,7 +200,6 @@ open class DialogSelectImage : BottomSheetDialogFragment() {
         fun enable(index: Int): Boolean
 
     }
-
 
     protected var spanCount = 3
         set(value) {
@@ -739,7 +739,7 @@ open class DialogSelectImage : BottomSheetDialogFragment() {
             when (newState) {
                 ImageState.NORMAL -> onNormal(view)
                 ImageState.SELECTED -> onSelected(view)
-                ImageState.HIDED -> onHide(view)
+                ImageState.HIDDEN -> onHide(view)
                 ImageState.DISABLE -> onDisable(view)
             }
         }
@@ -831,10 +831,10 @@ open class DialogSelectImage : BottomSheetDialogFragment() {
     }
 
     enum class ImageState {
-        SELECTED, NORMAL, HIDED, DISABLE;
+        SELECTED, NORMAL, HIDDEN, DISABLE;
         fun isSelected() = this == SELECTED
         fun isNormal() = this == NORMAL
-        fun isHided() = this == HIDED
+        fun isHidden() = this == HIDDEN
         fun isDisabled() = this == DISABLE
     }
 
@@ -944,11 +944,11 @@ open class DialogSelectImage : BottomSheetDialogFragment() {
         }
         private fun hideAllNormal() {
             for (keeper in getAll()) {
-                if (keeper.state == ImageState.NORMAL) keeper.state = ImageState.HIDED
+                if (keeper.state == ImageState.NORMAL) keeper.state = ImageState.HIDDEN
             }
         }
         private fun showAllHided() {
-            for (keeper in getAll()) if (keeper.state == ImageState.HIDED) keeper.state =
+            for (keeper in getAll()) if (keeper.state == ImageState.HIDDEN) keeper.state =
                 ImageState.NORMAL
         }
 
